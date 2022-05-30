@@ -1,0 +1,22 @@
+{{#*inline "page"}}
+
+<img src={{ this.dog }}></img><br>
+<label for="dog">Input your guess (for two-word breeds, format it as breed-subbreed)</label><br>
+<input type="text" id="dog" name="dog">
+<input type="text" id="ans" name="ans" value={{ this.breed }} style="display: none">
+<button type="submit" value="Submit" onclick="verify()">Submit!</button>
+
+<script>
+    function verify() {
+        let ans = document.getElementById('ans').value;
+        let success = document.getElementById('dog').value === ans;
+        if (success) {
+            alert("Good job, you got it!");
+        } else {
+            alert(`Nope, it was ${ans}`)
+        }
+    }
+</script>
+
+{{/inline}}
+{{~> (parent)~}}
